@@ -25,14 +25,18 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div className="content-container">
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        ></footer>
+      <div className="light" id="global-container">
+        <div class="theme-container">
+          <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+          <div className="content-container">
+            <main>{children}</main>
+            <footer
+              style={{
+                marginTop: `2rem`,
+              }}
+            ></footer>
+          </div>
+        </div>
       </div>
     </>
   )
