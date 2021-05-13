@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -26,38 +27,41 @@ const Index = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      <div className="all-posts-wrapper">
+        <ol style={{ listStyle: `none` }}>
+          {posts.map(post => {
+            const title = post.frontmatter.title || post.fields.slug
+            const thumb = getImage(post.frontmatter.thumb)
+            return (
+              <li key={post.fields.slug}>
+                <article
+                  className="post-list-item"
+                  itemScope
+                  itemType="http://schema.org/Article"
+                >
+                  <header>
+                    <GatsbyImage image={thumb} alt="required" />
+                    <h2>
+                      <Link to={post.fields.slug} itemProp="url">
+                        <span itemProp="headline">{title}</span>
+                      </Link>
+                    </h2>
+                    <small>{post.frontmatter.date}</small>
+                  </header>
+                  <section>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: post.frontmatter.description || post.excerpt,
+                      }}
+                      itemProp="description"
+                    />
+                  </section>
+                </article>
+              </li>
+            )
+          })}
+        </ol>
+      </div>
     </Layout>
   )
 }
@@ -81,6 +85,16 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          thumb {
+            childImageSharp {
+              gatsbyImageData(
+                width: 300
+                placeholder: BLURRED
+                formats: WEBP
+                layout: CONSTRAINED
+              )
+            }
+          }
         }
       }
     }
