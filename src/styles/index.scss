@@ -29,7 +29,7 @@ $themes: (
     // text-secondary: $text--2--light,
     // link: $brand--blue--light,
     // hover: $hover--light,
-    // border: $border--light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // border: $border--light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ),
   dark: (
     // logo: url("./images/logos/Logo (White on Transparent).png"),
@@ -41,7 +41,7 @@ $themes: (
     // text-secondary: $text--2--dark,
     // link: $brand--blue--dark,
     // hover: $hover--dark,
-    // border: $border--dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // border: $border--dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ),
 );
 
@@ -75,6 +75,7 @@ $themes: (
   padding: 0.5em 1em;
   display: flex;
   justify-content: flex-end;
+  transition: height 0.25s;
 }
 
 .theme-container {
@@ -143,8 +144,6 @@ main {
     }
 
     .post-list-item {
-      // background-color: red;
-      // width: 100%;
       width: 300px;
       margin: 1em;
 
@@ -287,14 +286,30 @@ main {
 
 .value-prop {
   text-align: center;
+  border-bottom: 1px solid $text--light;
+  padding: 2em;
   .value-prop-items {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     span {
       text-align: center;
-      min-width: 300px;
+      max-width: 250px;
       margin: 1em;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+    width: 300px;
+  }
+
+  .content-container {
+    margin-left: 300px;
+  }
+
+  .mobile-nav {
+    display: none;
   }
 }
