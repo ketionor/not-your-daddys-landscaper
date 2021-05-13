@@ -29,7 +29,7 @@ $themes: (
     // text-secondary: $text--2--light,
     // link: $brand--blue--light,
     // hover: $hover--light,
-    // border: $border--light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // border: $border--light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ),
   dark: (
     // logo: url("./images/logos/Logo (White on Transparent).png"),
@@ -41,7 +41,7 @@ $themes: (
     // text-secondary: $text--2--dark,
     // link: $brand--blue--dark,
     // hover: $hover--dark,
-    // border: $border--dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // border: $border--dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ),
 );
 
@@ -71,6 +71,12 @@ $themes: (
 * {
 }
 
+.mobile-nav {
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .theme-container {
   min-height: 100vh;
   @include themed() {
@@ -92,7 +98,10 @@ main {
   border-right: 1px solid black;
   overflow-x: hidden;
   padding-top: 1em;
-  display: none;
+  width: 0;
+  transition: width 0.25s;
+  z-index: 1;
+  background-color: white;
 
   a {
     display: block;
