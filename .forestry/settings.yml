@@ -4,6 +4,9 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: document
+  path: "../content/posts"
+  label: Posts
 - type: heading
   label: Posts
 upload_dir: uploads
