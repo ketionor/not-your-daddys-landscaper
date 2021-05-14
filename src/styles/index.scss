@@ -1,315 +1,315 @@
-// $orange1: #fd5901;
-// $orange2: #f78104;
-// $orange3: #faab36;
-// $teal1: #249ea0;
-// $teal2: #008083;
-// $teal3: #005f60;
+$orange1: #fd5901;
+$orange2: #f78104;
+$orange3: #faab36;
+$teal1: #249ea0;
+$teal2: #008083;
+$teal3: #005f60;
 
-// $background-color-primary: #0f1213;
-// $background-color-secondary: #1f2828;
-// $font-color: #fcfeff;
-// $accent-green: #41ff00;
-// $accent1: #f162ff;
-// $accent2: #d902ee;
-// $accent3: #ffd79d;
+$background-color-primary: #0f1213;
+$background-color-secondary: #1f2828;
+$font-color: #fcfeff;
+$accent-green: #41ff00;
+$accent1: #f162ff;
+$accent2: #d902ee;
+$accent3: #ffd79d;
 
-// $bg--light: #fcfeff;
-// $bg--dark: #0f1213;
-// $text--light: #0f1213;
-// $text--dark: #fcfeff;
+$bg--light: #fcfeff;
+$bg--dark: #0f1213;
+$text--light: #0f1213;
+$text--dark: #fcfeff;
 
-// $themes: (
-//   light: (
-//     // logo: url("./images/logos/Logo (Black on Transparent)-Recovered.png"),
-//     bg: $bg--light,
-//     no-height: 0,
-//     hover-bg: $teal1,
-//     // card-bg: $bg--card--light,
-//     text: $text--light,
-//     // text-secondary: $text--2--light,
-//     // link: $brand--blue--light,
-//     // hover: $hover--light,
-//     // border: $border--light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-//   ),
-//   dark: (
-//     // logo: url("./images/logos/Logo (White on Transparent).png"),
-//     bg: $bg--dark,
-//     no-height: 0,
-//     hover-bg: $teal3,
-//     // card-bg: $bg--card--dark,
-//     text: $text--dark,
-//     // text-secondary: $text--2--dark,
-//     // link: $brand--blue--dark,
-//     // hover: $hover--dark,
-//     // border: $border--dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-//   ),
-// );
+$themes: (
+  light: (
+    // logo: url("./images/logos/Logo (Black on Transparent)-Recovered.png"),
+    bg: $bg--light,
+    no-height: 0,
+    hover-bg: $teal1,
+    // card-bg: $bg--card--light,
+    text: $text--light,
+    // text-secondary: $text--2--light,
+    // link: $brand--blue--light,
+    // hover: $hover--light,
+    // border: $border--light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  ),
+  dark: (
+    // logo: url("./images/logos/Logo (White on Transparent).png"),
+    bg: $bg--dark,
+    no-height: 0,
+    hover-bg: $teal3,
+    // card-bg: $bg--card--dark,
+    text: $text--dark,
+    // text-secondary: $text--2--dark,
+    // link: $brand--blue--dark,
+    // hover: $hover--dark,
+    // border: $border--dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  ),
+);
 
-// @mixin themed() {
-//   @each $theme, $map in $themes {
-//     .#{$theme} & {
-//       $theme-map: () !global;
-//       @each $key, $submap in $map {
-//         $value: map-get(map-get($themes, $theme), "#{$key}");
-//         $theme-map: map-merge(
-//           $theme-map,
-//           (
-//             $key: $value,
-//           )
-//         ) !global;
-//       }
-//       @content;
-//       $theme-map: null !global;
-//     }
-//   }
-// }
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
 
-// @function t($key) {
-//   @return map-get($theme-map, $key);
-// }
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
 
-// * {
-// }
+* {
+}
 
-// .mobile-nav {
-//   padding: 0.5em 1em;
-//   display: flex;
-//   justify-content: flex-end;
-//   transition: height 0.25s;
-// }
+.mobile-nav {
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: flex-end;
+  transition: height 0.25s;
+}
 
-// .theme-container {
-//   min-height: 100vh;
-//   @include themed() {
-//     background-color: t("bg");
-//     color: t("text");
-//   }
-// }
+.theme-container {
+  min-height: 100vh;
+  @include themed() {
+    background-color: t("bg");
+    color: t("text");
+  }
+}
 
-// main {
-//   width: 100%;
-// }
+main {
+  width: 100%;
+}
 
-// .nav {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   width: 300px;
-//   border-right: 1px solid black;
-//   overflow-x: hidden;
-//   padding-top: 1em;
-//   width: 0;
-//   transition: width 0.25s;
-//   z-index: 1;
-//   background-color: white;
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  border-right: 1px solid black;
+  overflow-x: hidden;
+  padding-top: 1em;
+  width: 0;
+  transition: width 0.25s;
+  z-index: 1;
+  background-color: white;
 
-//   a {
-//     display: block;
-//     width: 100%;
-//     text-decoration: none;
-//     transition: padding-left 0.25s, opacity 0.25s;
+  a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    transition: padding-left 0.25s, opacity 0.25s;
 
-//     @include themed() {
-//       color: t("text");
-//     }
+    @include themed() {
+      color: t("text");
+    }
 
-//     &:hover {
-//       padding-left: 1em;
-//       opacity: 0.5;
-//     }
-//   }
+    &:hover {
+      padding-left: 1em;
+      opacity: 0.5;
+    }
+  }
 
-//   .nav-item-active {
-//     opacity: 0.5;
-//     padding-left: 1em;
-//   }
+  .nav-item-active {
+    opacity: 0.5;
+    padding-left: 1em;
+  }
 
-//   ul {
-//     list-style-type: none;
-//   }
-// }
+  ul {
+    list-style-type: none;
+  }
+}
 
-// .content-container {
-//   display: flex;
-//   justify-content: center;
-//   // margin-left: 300px;
+.content-container {
+  display: flex;
+  justify-content: center;
+  // margin-left: 300px;
 
-//   .all-posts-wrapper {
-//     ol {
-//       display: flex;
-//       flex-direction: row;
-//       flex-wrap: wrap;
-//       margin: 0;
-//     }
+  .all-posts-wrapper {
+    ol {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0;
+    }
 
-//     .post-list-item {
-//       width: 300px;
-//       margin: 1em;
+    .post-list-item {
+      width: 300px;
+      margin: 1em;
 
-//       h2 {
-//         a {
-//           display: block;
-//           width: 100%;
-//           text-decoration: none;
-//           color: black;
+      h2 {
+        a {
+          display: block;
+          width: 100%;
+          text-decoration: none;
+          color: black;
 
-//           &:hover {
-//             opacity: 0.7;
-//           }
+          &:hover {
+            opacity: 0.7;
+          }
 
-//           span {
-//             display: block;
-//             width: 100%;
-//             white-space: nowrap;
-//             overflow: hidden;
-//             text-overflow: ellipsis;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+          span {
+            display: block;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}
 
-// // Move this to its own file
-// .dark-button {
-//   height: 45px;
-//   box-sizing: border-box;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   // position: sticky;
-//   // top: 5px;
-//   // right: 5px;
-//   // align-self: center;
+// Move this to its own file
+.dark-button {
+  height: 45px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // position: sticky;
+  // top: 5px;
+  // right: 5px;
+  // align-self: center;
 
-//   &:before,
-//   &:after {
-//     box-sizing: border-box;
-//   }
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
 
-//   label {
-//     position: absolute;
-//     display: block;
-//     width: 45px;
-//     height: 25px;
-//     border-radius: 100px;
-//     // background-color: teal;
-//     overflow: hidden;
-//     cursor: pointer;
+  label {
+    position: absolute;
+    display: block;
+    width: 45px;
+    height: 25px;
+    border-radius: 100px;
+    // background-color: teal;
+    overflow: hidden;
+    cursor: pointer;
 
-//     @include themed() {
-//       background-color: t("bg");
-//       border: 1px solid t("text");
-//     }
+    @include themed() {
+      background-color: t("bg");
+      border: 1px solid t("text");
+    }
 
-//     &:before,
-//     &:after {
-//       display: block;
-//       position: absolute;
-//       content: "";
-//       width: 18px;
-//       height: 18px;
-//       border-radius: 50%;
-//       top: 3px;
-//       left: 3px;
-//       transition: 0.5s ease;
-//     }
-//     &:before {
-//       @include themed() {
-//         background-color: t("text");
-//       }
-//     }
-//     &:after {
-//       // background-color: $background-color-primary;
-//       // transform: scale(0.00001);
-//     }
-//   }
+    &:before,
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      transition: 0.5s ease;
+    }
+    &:before {
+      @include themed() {
+        background-color: t("text");
+      }
+    }
+    &:after {
+      // background-color: $background-color-primary;
+      // transform: scale(0.00001);
+    }
+  }
 
-//   .fa-moon {
-//     color: $bg--light;
-//     position: relative;
-//     top: -1px;
-//     left: 2px;
-//     transition: opacity 0.2s;
-//     transition-delay: 0.2s;
-//   }
+  .fa-moon {
+    color: $bg--light;
+    position: relative;
+    top: -1px;
+    left: 2px;
+    transition: opacity 0.2s;
+    transition-delay: 0.2s;
+  }
 
-//   .fa-sun {
-//     color: $bg--dark;
-//     position: relative;
-//     top: -1px;
-//     right: -5px;
-//     transition: opacity 0.22s;
-//     transition-delay: 0.2s;
-//   }
+  .fa-sun {
+    color: $bg--dark;
+    position: relative;
+    top: -1px;
+    right: -5px;
+    transition: opacity 0.22s;
+    transition-delay: 0.2s;
+  }
 
-//   input[type="checkbox"] {
-//     display: none;
+  input[type="checkbox"] {
+    display: none;
 
-//     &:checked + label {
-//       &:before {
-//         // @include themed() {
-//         //   background-color: t("bg");
-//         // }
-//         transform: translateX(20px);
-//       }
-//       &:after {
-//         transform: translateX(75px) scale(1);
-//       }
-//     }
-//   }
-// }
+    &:checked + label {
+      &:before {
+        // @include themed() {
+        //   background-color: t("bg");
+        // }
+        transform: translateX(20px);
+      }
+      &:after {
+        transform: translateX(75px) scale(1);
+      }
+    }
+  }
+}
 
-// .dark {
-//   .fa-sun {
-//     height: 0;
-//     opacity: 0;
-//     transition: height 0.5s;
-//   }
+.dark {
+  .fa-sun {
+    height: 0;
+    opacity: 0;
+    transition: height 0.5s;
+  }
 
-//   .fa-moon {
-//     transition: height 0.5s;
-//   }
-// }
+  .fa-moon {
+    transition: height 0.5s;
+  }
+}
 
-// .light {
-//   .fa-moon {
-//     height: 0;
-//     transition: height 0.5s;
-//   }
+.light {
+  .fa-moon {
+    height: 0;
+    transition: height 0.5s;
+  }
 
-//   .fa-sun {
-//     transition: height 0.5s;
-//   }
-// }
+  .fa-sun {
+    transition: height 0.5s;
+  }
+}
 
-// .value-prop {
-//   text-align: center;
-//   border-bottom: 1px solid $text--light;
-//   padding: 2em;
-//   .value-prop-items {
-//     display: flex;
-//     justify-content: space-evenly;
-//     flex-wrap: wrap;
-//     span {
-//       text-align: center;
-//       max-width: 250px;
-//       margin: 1em;
-//     }
-//   }
-// }
+.value-prop {
+  text-align: center;
+  border-bottom: 1px solid $text--light;
+  padding: 2em;
+  .value-prop-items {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    span {
+      text-align: center;
+      max-width: 250px;
+      margin: 1em;
+    }
+  }
+}
 
-// @media (min-width: 768px) {
-//   .nav {
-//     width: 300px;
-//   }
+@media (min-width: 768px) {
+  .nav {
+    width: 300px;
+  }
 
-//   .content-container {
-//     margin-left: 300px;
-//   }
+  .content-container {
+    margin-left: 300px;
+  }
 
-//   .mobile-nav {
-//     display: none;
-//   }
-// }
+  .mobile-nav {
+    display: none;
+  }
+}
