@@ -22,4 +22,5 @@ fields:
     maxSize: 64
   label: Featured Image
 pages:
+- content/posts/anoter-test.md
 - content/posts/tesst-of-featured-image.md
