@@ -21,3 +21,5 @@ fields:
   config:
     maxSize: 64
   label: Featured Image
+pages:
+- content/posts/this-is-a-brand-new-blog-post.md
