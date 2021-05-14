@@ -105,7 +105,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Frontmatter {
       title: String
       description: String
-      featuredImage: String
       date: Date @dateformat
     }
 

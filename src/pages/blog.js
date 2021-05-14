@@ -31,7 +31,7 @@ const Index = ({ data, location }) => {
         <ol style={{ listStyle: `none` }}>
           {posts.map(post => {
             const title = post.frontmatter.title || post.fields.slug
-            const thumb = getImage(post.frontmatter.thumb)
+            const thumb = getImage(post.frontmatter.featuredImage)
             return (
               <li key={post.fields.slug}>
                 <article
@@ -85,7 +85,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
-          thumb {
+          featuredImage {
             childImageSharp {
               gatsbyImageData(
                 width: 300

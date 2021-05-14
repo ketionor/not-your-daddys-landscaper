@@ -7,7 +7,7 @@ import { graphql } from "gatsby"
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data
-  const hero = getImage(post.frontmatter.thumb)
+  const hero = getImage(post.frontmatter.featuredImage)
   return (
     <>
       <Layout>
@@ -40,10 +40,7 @@ export const postQuery = graphql`
     markdownRemark {
       html
       frontmatter {
-        featuredImage
-        date
-        title
-        thumb {
+        featuredImage {
           childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED
@@ -52,6 +49,8 @@ export const postQuery = graphql`
             )
           }
         }
+        date
+        title
       }
     }
   }
