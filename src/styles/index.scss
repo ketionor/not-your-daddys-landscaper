@@ -29,7 +29,7 @@ $themes: (
     // text-secondary: $text--2--light,
     // link: $brand--blue--light,
     // hover: $hover--light,
-    // border: $border--light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // border: $border--light,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ),
   dark: (
     // logo: url("./images/logos/Logo (White on Transparent).png"),
@@ -41,7 +41,7 @@ $themes: (
     // text-secondary: $text--2--dark,
     // link: $brand--blue--dark,
     // hover: $hover--dark,
-    // border: $border--dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // border: $border--dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   ),
 );
 
@@ -313,3 +313,5 @@ main {
     display: none;
   }
 }
+
+// add a comment
