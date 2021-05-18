@@ -10,6 +10,16 @@ module.exports = {
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
       twitter: `thejoshsandefer`,
+      instagram: "thejoshsandefer",
+      youtube: "null",
+    },
+    contact: {
+      phone: `(555) 555 - 5555`,
+      email: `notyourdaddyslandscaping@example.com`,
+      address: `123 Main Street`,
+      city: `Anytown`,
+      state: `Texas`,
+      zip: `55555`,
     },
   },
   plugins: [
@@ -35,7 +45,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `static-images`,
-        path: `${__dirname}/src/static`,
+        path: `${__dirname}/src/images`,
       },
     },
     `gatsby-transformer-sharp`,

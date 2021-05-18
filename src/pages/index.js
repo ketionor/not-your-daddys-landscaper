@@ -1,44 +1,38 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { StaticImage, getImage } from "gatsby-plugin-image"
+import Social from "../components/Social"
+import Value from "../components/Value"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import ImageWithOverlay from "../components/ImageWithOverlay"
 
 const IndexPage = ({ data }) => {
-  const hero = getImage(data.fileName)
+  const hero = getImage(data.allFile.edges[0])
 
   return (
     <Layout>
       <Seo title="Home" />
       {/* Hero image */}
-      <GatsbyImage image={hero} alt="hero image" />
-      <div className="value-prop">
-        <h2>I Make Websites</h2>
-        <div className="value-prop-items">
-          <span>
-            <h3>User Experience</h3>
-            <p>
-              I build websites taht are focused on an awesome user experience,
-              which means more paying customers for your business.
-            </p>
-          </span>
-          <span>
-            <h3>Speed</h3>
-            <p>
-              Websites need to be fast, or your customers will go back to Google
-              and find your competitors.
-            </p>
-          </span>
-          <span>
-            <h3>Search Engine oprimization</h3>
-            <p>
-              More people use Google than ever before, and if your business
-              shows up on Google, you will see more customers!
-            </p>
-          </span>
-        </div>
+      <StaticImage
+        src="../images/index/house-front-lawn.jpg"
+        alt="hero image"
+      />
+      <div className="about">
+        <h2>About Us</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
       </div>
+      <ImageWithOverlay
+        title="Lorem Ipsum"
+        text="Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        cta={true}
+      />
+      <div></div>
+      <Value />
     </Layout>
   )
 }
@@ -46,13 +40,20 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query {
-    fileName: file(
-      relativePath: { eq: "hero.jpg" }
-      sourceInstanceName: { eq: "static-images" }
+  query IndexQuery {
+    allFile(
+      filter: {
+        sourceInstanceName: { eq: "static-images" }
+        name: { eq: "house-front-lawn" }
+      }
     ) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED, formats: WEBP, layout: FULL_WIDTH)
+      edges {
+        node {
+          name
+          childImageSharp {
+            gatsbyImageData(aspectRatio: 1)
+          }
+        }
       }
     }
   }
