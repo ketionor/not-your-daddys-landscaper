@@ -23,10 +23,7 @@ export default function Social({ size }) {
         href={`https://www.twitter.com/${site.siteMetadata.social.twitter}`}
         target="_blank"
       >
-        <StaticImage
-          src="../images/social-icons/iconmonstr-twitter-1-64.png"
-          width={parseInt(size)}
-        />
+        <StaticImage src="../images/social-icons/iconmonstr-twitter-1-64.png" />
       </a>
       <a
         href={`https://www.instagram.com/${site.siteMetadata.social.instagram}`}
